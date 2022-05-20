@@ -5,7 +5,7 @@ import PopularMovies from "../components/PopularMovies"
 export default function Home({movies}) {
   console.log(movies)
   return (
-    <div className="bg-gray-800">
+    <div className="bg-gray-800 pb-14">
       <Hero />
       <PopularMovies movies={movies.results} />
     </div>

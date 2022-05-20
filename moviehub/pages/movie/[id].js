@@ -1,11 +1,20 @@
 import axios from "axios"
 import Image from "next/image"
+import Meta from "../../components/Meta"
 
 const movie = ({movie}) => {
   console.log(movie)
   return (
-    <div className="container max-w-md mx-auto pt-4 mt-4">
-      <Image className="rounded-lg border-gray-800 border-4" src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} width="50%" height="50%" layout="responsive"/>
+    <div className="md:flex m-28 border-orange-600 border-4 rounded-lg bg-gray-700">
+      <Meta title={movie.title}/>
+      <div className="container max-w-md mx-auto m-4 ml-4 border-orange-600 border-4 rounded-lg">
+        <Image className="rounded-lg " src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`} width="50%" height="40%" layout="responsive"/>
+      </div>
+      <div className="p-4 m-4">
+        <h1 className="font-bold text-3xl text-white">{movie.title}</h1>
+        <p className=" text-gray-300 font-bold">{movie.genres.map(genre => genre.name).join(' | ')}</p>
+        <p className="pt-4 text-white">{movie.overview}</p>
+      </div>
     </div>
   )
 }
